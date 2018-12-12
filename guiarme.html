@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        
+        <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">        
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/subPaciente.css">
+        <link rel="stylesheet" href="css/guiarme.css">
+    
+        <title>Sua Saúde - Guiar-me</title>
+    </head>
+
+<body>
+    <!-- cabeçalho -->
+    <header class="cabecalho">
+        <div class="logo">
+            <a href="loginPaciente.html"><img src="img/logo.png" alt="Sua Saúde"></a>
+        </div>
+        <nav class="nav-bar">
+            <ul class="menu">
+                <li class="botao">
+                    <a href="loginPaciente.html" class="btn-menu">Home</a>
+                </li>
+                <li class="botao">
+                    <a href="historico.html" class="btn-menu">Histórico</a>
+                </li>
+                <li class="botao">
+                    <a href="favoritos.html" class="btn-menu">Favoritos</a>
+                </li>
+                <li class="botao login-a">
+                    <div class="drop-login">
+                        <div class="login-img"></div>
+                    </div>
+                    <div class="menu-login">
+                        <ul>
+                            <a href="#"><li>Perfil</li></a>
+                            <a href="#"><li>Configurações</li></a>
+                            <a href="index.html"><li>Sair</li></a>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- imagem inicial -->
+    <div class="content1">
+        <div class="bg-image4 bg-gui"></div>
+    </div>
+
+    <!--guiarme -->
+    <div class="gui-container">
+        <div class="gui-map-area">
+            <div id="map"></div>
+        </div>
+        <div class="gui-info">
+            <h3 class="gui-nome-clinica">Clinimagem</h3>
+            <div class="nota"></div>
+            <p ><b>Contato:</b> <span class="gui-contato">(89) 987651234 </span></p>
+            <p ><b>Endereço:</b> <span class="gui-endereco">Av. Dos Namorados, 123, Quixadá</span></p>
+            <div class="gui-servicos">
+                <b>Serviços:</b><br>
+                <span>MAMOGRAFIA DIGITAL, RAIO X  DIGITAL, LABORATÓRIO,
+                ULTRASOM 4D, ULTRASSOM COLORIDO, DENSITOMETRIA ÓSSEA,
+                ENDOSCOPIA DIGESTIVA ALTA, ELETROCARDIOGRAMA DIGITAL,
+                MAPA, HOLTER, ECOCARDIOGRAMA, DERMATOLOGISTA, OTORRINOLARINGOLOGISTA,
+                ORTOPEDISTA, PEDIATRA, GINECOLOGISTA, CLINICO GERAL,
+                GASTROENTEROLOGISTA, CARDIOLOGISTA, NEUROLOGISTA.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- rodapé -->
+    <footer class="rodape">
+        &copy; Todos os direitos reservados - JAMIK Desenvolvimento
+    </footer>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/index.js"></script>
+
+   <!--  <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery.mask.min.js"></script>
+    <script src="js/index.js"></script> -->
+
+    <!-- <script>
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(fn_ok);
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+        getLocation();
+        function fn_erro(error){
+             console.log(error);
+        }
+
+        function fn_ok( resposta ){
+            let lati = resposta.coords.latitude;
+            let lon = resposta.coords.longitude;
+
+            let latLong = new google.maps.LatLng(lati, lon);
+            console.log(latLong);
+            initMap(latLong);
+        }
+
+        // Initialize and add the map
+        function initMap(oi) {
+          // The location of Uluru
+          var uluru = {lat: -4.868615, lng: -39.021839};
+          // The map, centered at Uluru
+          var map = new google.maps.Map(
+              document.getElementById('map'), {zoom: 17, center: oi});
+          // The marker, positioned at Uluru
+          var marker = new google.maps.Marker({position: oi,animation: google.maps.Animation.DROP, map: map});
+          marker.setIcon('./img/icones/+.png');
+          var marker2 = new google.maps.Marker({position: uluru,animation: google.maps.Animation.DROP, map: map});
+          marker2.setIcon('./img/icones/+.png');
+        }
+    </script> -->
+    <script>
+
+        let dados = JSON.parse(localStorage.getItem('dadosGuiar-me'));
+
+        $('.gui-nome-clinica').text(dados.nome);
+        $('.nota').css('background', 'url(./img/notaClinica/'+dados.nota+'.png) 0 0/ cover ');
+        $('.gui-contato').text(dados.contato);
+        $('.gui-endereco').text(dados.endereco);
+        $('.gui-servicos span').text(dados.sevicos);
+
+
+
+        function initMap(uPos, cPos) {
+            var directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true});
+            var directionsService = new google.maps.DirectionsService;
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 14,
+                center: {lat: -4.970555, lng: -39.016127},
+                // mapTypeId: 'satellite'
+            });
+            directionsDisplay.setMap(map);
+            var uMarker = new google.maps.Marker({position: uPos,animation: google.maps.Animation.DROP, map: map});
+            uMarker.setIcon('./img/icones/userMap.png');
+            var cMarker = new google.maps.Marker({position: cPos,animation: google.maps.Animation.DROP, map: map});
+            cMarker.setIcon('./img/icones/cliMap.png');
+
+            calculateAndDisplayRoute(directionsService, directionsDisplay, uPos, cPos);
+        }
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var userPos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                var clinicaPosition = dados.coords;
+                initMap(userPos, clinicaPosition);
+
+                // map.setCenter(pos);
+            }, 
+            function() {
+              alert('error');
+            });
+        } else {
+            // Browser doesn't support Geolocation
+            alert('Browser doesnt support Geolocation');
+        }
+                
+
+        function calculateAndDisplayRoute(directionsService, directionsDisplay, pos1, pos2) {
+            var selectedMode = "DRIVING";
+            directionsService.route({
+              origin: pos1,  // Haight.
+              destination:pos2,  // Ocean Beach.
+              // Note that Javascript allows us to access the constant
+              // using square brackets and a string value as its
+              // "property."
+              travelMode: google.maps.TravelMode[selectedMode]
+            }, function(response, status) {
+              if (status == 'OK') {
+                directionsDisplay.setDirections(response);
+              } else {
+                window.alert('Directions request failed due to ' + status);
+              }
+            });
+        }
+        </script>
+        <script  defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7WcYjzRXZ0QcTyj-92tKHg1QayZHQn0s&callback=initMap">
+        </script>
+        <!-- <script  defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIJ9XX2ZvRKCJcFRrl-lRanEtFUow4piM&callback=initMap">
+        </script>
+ -->
+</body>
+
+</html>

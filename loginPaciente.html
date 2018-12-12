@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        
+        <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">        
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/subPaciente.css">
+    
+        <title>Sua Saúde - Paciente</title>
+    </head>
+
+<body>
+    <!-- cabeçalho -->
+    <header class="cabecalho">
+        <!-- responsive -->
+        <div class="open-menu-btn">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+        <div class="pesquisa-c">
+            <form>
+                <input type="text" name="">
+                <button type="submit" class="btn-pesquisa-c"></button>
+            </form>
+        </div>
+        <div class="logo">
+            <a href="loginPaciente.html"><img src="img/logo.png" alt="Sua Saúde"></a>
+        </div>
+        <!-- fim responsive -->
+        <nav class="nav-bar">
+            <ul class="menu">
+                <li class="botao">
+                    <a href="loginPaciente.html" class="btn-menu">Home</a>
+                </li>
+                <li class="botao">
+                    <a href="historico.html" class="btn-menu">Histórico</a>
+                </li>
+                <li class="botao">
+                    <a href="favoritos.html" class="btn-menu">Favoritos</a>
+                </li>
+                <li class="botao login-a">
+                    <div class="drop-login">
+                        <div class="login-img"></div>
+                    </div>
+                    <div class="menu-login">
+                        <ul>
+                            <a href="#"><li>Perfil</li></a>
+                            <a href="#"><li>Configurações</li></a>
+                            <a href="index.html"><li>Sair</li></a>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- imagem inicial -->
+    <div class="content1">
+        <div class="bg-image4"></div>
+    </div>
+
+    <!--pesquisar -->
+    <div class="content2">
+        <form action="">
+            <input type="search" name="pesquisa" class="pesquisa" placeholder="Busque algo">
+            <input type="submit" value="Pesquisar" class="btnPesquisar">
+
+            <div class="filtros">
+                <span class="precoConsulta">
+                    Preço: <input type="range" class="rangeInput" name="precoConsulta" min="50" max="5000" id="">
+                    <div class="valorRange">2500</div>
+                </span>|
+                <span class="proximidade">
+                    <input type="checkbox" name="proximidade" id="proximo">
+                    <label for="proximo">Proximidade</label>
+                </span>|
+                <select name="popularidade" class="popularidade">
+                    <option value="Nenhum">Popularidade</option>
+                    <option value="1.0">1.0</option>
+                    <option value="2.0">2.0</option>
+                    <option value="3.0">3.0</option>
+                    <option value="4.0">4.0</option>
+                    <option value="5.0">5.0</option>
+                </select>|
+                <input type="text" placeholder="Cidade" name="cidade" class="cidadePaciente">|
+                <select name="planoSaude" class="planoSaude">
+                    <option value="Nenhum">Planos de Saúde</option>
+                    <option value="Unimed">Unimed</option>
+                    <option value="Hapvida">Hapvida</option>
+                    <option value="SulAmérica">SulAmérica</option>
+                    <option value="Bradesco Saúde">Bradesco Saúde</option>
+                    <option value="Amil">Amil</option>
+                    <option value="Gamec">Gamec</option>
+                </select>
+            </div>
+
+        </form>
+    </div>
+
+    <div class="resultPesquisa"></div>
+
+    <!--pesquisas frequentes/cookies-->
+    <div class="frequente">
+        
+        <div class="cookies" name="Clinimagem">
+            <div class="pesq1">
+                <div class="slider"></div>
+
+                <h2>Clinimagem</h2>
+                <div class="nota"></div>
+
+                <p class="textoPesq">
+                    MAMOGRAFIA DIGITAL, RAIO X  DIGITAL, LABORATÓRIO,
+                    ULTRASOM 4D, ULTRASSOM COLORIDO, DENSITOMETRIA ÓSSEA,
+                    ENDOSCOPIA DIGESTIVA ALTA, ELETROCARDIOGRAMA DIGITAL,
+                    MAPA, HOLTER, ECOCARDIOGRAMA, DERMATOLOGISTA, OTORRINOLARINGOLOGISTA,
+                    ORTOPEDISTA, PEDIATRA, GINECOLOGISTA, CLINICO GERAL,
+                    GASTROENTEROLOGISTA, CARDIOLOGISTA, NEUROLOGISTA.
+                </p>
+
+                <button type="button" value="Informações" class="btnFichaPesq">Informações</button>
+                <button type="button" value="Guiar-me" class="btnFichaPesq">Guiar-me</button>
+                <button type="button" value="Agendar" class="btnFichaPesq">Agendar</button>
+                <button id="btn-chat" type="button" value="Chat" class="btnFichaPesq">Chat</button>
+                <button class="btnFichaPesq"><img src="img/icones/favoritar.png" alt=""></button>
+            </div>
+        </div>
+        <div class="cookies" name="Vera Queiroz">
+            <div class="pesq1" id="cl2">
+                <div class="slider"></div>
+
+                <h2>Vera Queiroz</h2>
+                <div class="nota">
+                    
+                </div>
+
+                <p class="textoPesq">
+                    MAMOGRAFIA DIGITAL, CARDIOLOGISTA, LABORATÓRIO,
+                     DENSITOMETRIA ÓSSEA,
+                    ENDOSCOPIA DIGESTIVA ALTA, GASTROENTEROLOGISTA, MAPA, ECOCARDIOGRAMA, DERMATOLOGISTA, OTORRINOLARINGOLOGISTA,
+                    ULTRASOM 4D,ORTOPEDISTA, PEDIATRA, GINECOLOGISTA, CLINICO GERAL,
+                     NEUROLOGISTA.
+                </p>
+
+                <button type="button" value="Informações" class="btnFichaPesq">Informações</button>
+                <button type="button" value="Guiar-me" class="btnFichaPesq">Guiar-me</button>
+                <button type="button" value="Agendar" class="btnFichaPesq">Agendar</button>
+                <button id="btn-chat" type="button" value="Chat" class="btnFichaPesq">Chat</button>
+                <button class="btnFichaPesq"><img src="img/icones/favoritar.png" alt=""></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- rodapé -->
+    <footer class="rodape">
+        &copy; Todos os direitos reservados - JAMIK Desenvolvimento
+    </footer>
+
+    <!-- overlay -->
+    <div class="overlayInfo">
+        <div class="quadroInfo">
+            <span class="btn-fechar">&times;</span>
+            <div class="slider"></div>
+
+            <h2>Clinimagem</h2>
+            <div class="nota"></div>
+            <div class="contatoInfo">
+                <b>Contato:</b> <span class="ctt">(89) 987651234</span> <br>
+                <b>Endereço:</b> <span class="edr">Av. Dos Namorados, 123, Quixadá</span>
+            </div>
+            <p class="textoPesq">
+                MAMOGRAFIA DIGITAL, RAIO X  DIGITAL, LABORATÓRIO,
+                ULTRASOM 4D, ULTRASSOM COLORIDO, DENSITOMETRIA ÓSSEA,
+                ENDOSCOPIA DIGESTIVA ALTA, ELETROCARDIOGRAMA DIGITAL,
+                MAPA, HOLTER, ECOCARDIOGRAMA, DERMATOLOGISTA, OTORRINOLARINGOLOGISTA,
+                ORTOPEDISTA, PEDIATRA, GINECOLOGISTA, CLINICO GERAL,
+                GASTROENTEROLOGISTA, CARDIOLOGISTA, NEUROLOGISTA.
+            </p>
+            
+        </div>
+    </div>
+
+    <!-- chat -->
+    <div class="chat">
+        <div class="titulo">Clinimagem</div>
+        <div class="conteudo">
+            <div class="conversa">
+                <div class="foto"></div>
+                <span>Olá, Como posso ajudar?</span>
+            </div>
+            <form>
+                <input class="input" placeholder="Digite uma mensagem" type="text">
+            </form>
+        </div>
+    </div>
+
+
+    <script src="js/jquery-3.3.1.min.js"></script>  
+    <script src="js/jquery.mask.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/dados.js"></script>
+    <script >
+
+        if(!localStorage.dadosHistorico)
+            localStorage.setItem('dadosHistorico', JSON.stringify({historico: []}));
+            
+
+
+
+        // BUSCA
+
+        $('.content2 form').on('submit', function(event) {
+            console.log(event);
+            event.preventDefault();
+            console.log( $( this ).serialize() );
+            console.log( $('div [name="Vera Queiroz"]') );
+
+            // $('div [name="Vera Queiroz"] .nota').css({
+            //         background: 'url(./img/notaClinica/5.png)',
+            //         backgroundSize: 'cover'
+            // });
+            myFunction();
+        });
+
+        function myFunction() {
+            var filter, obj, a, i, txtValue;
+            let achou = false;
+            let listCli = [];
+            filter = $('.pesquisa').val().toUpperCase();
+            obj = getAllCli();
+            console.log(obj)
+            for (i = 0; i < obj.length; i++) {
+                // a = obj[i].getElementsByTagName("h2")[0];
+                txtValue = obj[i].nome;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    listCli.push(obj[i]);
+                    achou = true;
+                } else {
+                    // console.log($(obj[i]));
+                    // listDel.push($(obj[i]));
+                }
+            }
+            if(achou){
+                $( '.resultPesquisa').text('');
+                for(let cli of listCli){createCli(cli)};
+                activeInfoBtn();
+                activeAgendBtn();
+                activeGuiBtn();
+                $('.frequente').hide();
+
+            }else{
+                alert('nao achou');
+            }
+        }
+
+        // for (let cli of banco.clinicas){
+        //     createCli(cli);
+            
+        // }
+        function createCli(clinica){
+            let a = '<div class="cookies" name="'+clinica.nome+'">'+
+                '<div class="pesq1" id="cl2">'+
+                    '<div class="slider"></div>'+
+
+                    '<h2>'+clinica.nome+'</h2>'+
+                    '<div class="nota" style="background: url(./img/notaClinica/'+clinica.nota+'.png) 0 0/cover"></div>'+
+
+                    '<p class="textoPesq">'+clinica.servicos+'</p>'+
+
+                    '<button type="button" value="Informações" class="btnFichaPesq">Informações</button>'+
+                    '<button type="button" value="Guiar-me" class="btnFichaPesq">Guiar-me</button>'+
+                    '<button type="button" value="Agendar" class="btnFichaPesq">Agendar</button>'+
+                    '<button id="btn-chat" type="button" value="Chat" class="btnFichaPesq">Chat</button>'+
+                    '<button class="btnFichaPesq"><img src="img/icones/favoritar.png" alt=""></button>'+
+                '</div>'+
+            '</div>'
+
+            $( '.resultPesquisa').append($(a));
+        };
+
+        function getCliByName(name){
+            for (let cli of banco.clinicas){
+                if (cli.nome == name){
+                    return cli;
+                }
+            }
+            return false;
+        };
+        function getAllCli(){
+            let list = [];
+            for (let cli of banco.clinicas){
+                list.push(cli);
+            };
+            return list;
+        };
+
+        function activeInfoBtn(){
+            $('button[value="Informações"]').click(function(event) {
+                /* Act on the event */
+                let nome = $(this).parents('.cookies').attr('name');
+                let cli = getCliByName(nome);
+                console.log(cli);
+                $('.overlayInfo h2').text(cli.nome);
+                $('.overlayInfo .ctt').text(cli.contato);
+                $('.overlayInfo .edr').text(cli.endereco);
+                $('.overlayInfo .textoPesq').text(cli.servicos);
+                $('.overlayInfo .nota').css('background', 'url(./img/notaClinica/'+cli.nota+'.png) 0 0/cover');
+                $('.overlayInfo').show();
+            });
+        };
+        activeInfoBtn();
+        $('.btn-fechar').click(function(event) {
+            /* Act on the event */
+            $('.overlayInfo').hide();
+
+        });
+
+        function activeAgendBtn(){
+            $('button[value="Agendar"]').click(function(event) {
+                /* Act on the event */
+                let nome = $(this).parents('.cookies').attr('name');
+                let cli = getCliByName(nome);
+                
+                localStorage.setItem('dadosClinica', JSON.stringify(cli));
+                window.location.assign('agendar.html');
+            });
+        };
+        activeAgendBtn();
+
+        function activeGuiBtn(){
+            $('button[value="Guiar-me"]').click(function(event) {
+                /* Act on the event */
+                let nome = $(this).parents('.cookies').attr('name');
+                let cli = getCliByName(nome);
+                
+                localStorage.setItem('dadosGuiar-me', JSON.stringify(cli));
+                window.location.assign('guiarme.html');
+            });
+        };
+        activeGuiBtn();
+
+
+    </script>
+
+</body>
+
+</html>
